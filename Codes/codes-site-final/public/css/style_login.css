@@ -1,0 +1,222 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* bloco de criação de variavéis para padronização */
+:root {
+    /* Cores */
+    --white-color: #f5f5f5; /* Cor branca */
+    --dark-color: #030320; /* Cor escura */
+    --primary-color: #251605; /* Cor primária */
+    --secondary-color: #c59506; /* Cor secundária */
+    --secondary-color-variacao: #dfa805;
+    --light-pink-color: #faf4f5; /* Cor rosa claro */ 
+    --medium-gray-color: #ccc; /* Cinza médio */
+    --black-color: #000000;
+    --golden-yellow: #FFD700;
+    --warm-beige: #F5DEB3;
+    --soft-brown: #A0522D;
+    --dark-charcoal: #2F2F2F;
+    --cream-white: #f3f2db;
+    --amber-orange: #FFBF00;
+    --midnight-blue: #191970;
+    --dark-slate-blue: #483D8B;
+    --navy-blue: #000080;
+    --prussian-blue: #003153;
+    --indigo-dye: #00416A;
+    --oxford-blue: #002147;
+    --space-cadet: #1d2951ee;
+    --complementar: #005e96;
+    --backgroud-transparent: #000000de;
+    --bg-gradient: linear-gradient(to left,  rgb(0, 0, 69), #030320, #1a1a40, #1b1b37, #252537);
+    --marrom-sépia: #36251A;
+    --marrom-amadeirado: #2F1F16;
+    --marrom-claro: #3D2B1E;
+  
+    /* Tamanhos de fonte */
+    --font-size-s: 0.9rem; /* Fonte pequena */
+    --font-size-n: 1rem; /* Fonte normal */
+    --font-size-m: 1.12rem; /* Fonte média */
+    --font-size-l: 1.5rem; /* Fonte grande */
+    --font-size-xl: 2rem; /* Fonte extra grande */
+    --font-size-xxl: 2.3rem; /* Fonte extra extra grande */
+  
+    /* Espessuras da fonte */
+    --font-weight-normal: 400; /* Peso normal */
+    --font-weight-medium: 500; /* Peso médio */
+    --font-weight-semibold: 600; /* Peso semi-negrito */
+    --font-weight-bold: 700; /* Peso negrito */
+  
+    /* Raio da borda */
+    --border-radius-s: 8px; /* Raio pequeno */
+    --border-radius-m: 30px; /* Raio médio */
+    --border-radius-circle: 50%; /* Bordas circulares */
+  
+    /* Largura máxima do site */
+    --site-max-width: 1300px; /* Largura máxima do conteúdo */
+  }
+  /* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000ee;
+  background-image: url("../imgs/salaMaturacao.png");
+  background-repeat: no-repeat;
+  background-size: cover; /* Faz com que a imagem ocupe toda a tela */
+  background-position: center; /* Centraliza a imagem */
+}
+.container {
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    background: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 0 20px;
+}
+
+.container .form {
+    padding: 30px;
+    background-color: var(--white-color);
+}
+
+.container .form .title {
+    position: relative;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+.form .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background-color: var(--amber-orange);
+    border-radius: 25px;
+}
+
+.form .input-field {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.input-field input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 35px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) {
+    border-bottom-color: var(--amber-orange);
+}
+
+.input-field i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+    transition: all 0.2s ease;
+}
+
+.input-field input:is(:focus, :valid)~i {
+    color: var(--amber-orange);
+}
+
+.input-field i.icon {
+    left: 0;
+}
+
+.input-field i.showHidePw {
+    right: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.form .checkbox-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.checkbox-text .checkbox-content {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-content input {
+    margin-right: 10px;
+    accent-color: var(--amber-orange);
+}
+
+.form .text {
+    color: #333;
+    font-size: 14px;
+}
+
+.form a.text {
+    color: var(--amber-orange);
+    text-decoration: none;
+}
+
+.form a:hover {
+    text-decoration: underline;
+}
+
+.input-field.button {
+    margin-top: 35px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field.button .botao {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 17px;
+    font-weight: var(--font-weight-medium); /* Usa a variável para consistência */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    color: var(--white-color); /* Texto branco */
+    background-color: var(--amber-orange); /* Fundo verde escuro */
+    border: none; /* Remove bordas padrão */
+    border-radius: var(--border-radius-s); /* Borda arredondada */
+    cursor: pointer; /* Indica que o elemento é interativo */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Suaviza mudanças */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Adiciona leve sombra */
+}
+
+.input-field.button .botao:hover {
+    background-color: var(--secondary-color); /* Cor mais clara no hover */
+    transform: scale(1.03); /* Leve aumento ao passar o mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra mais destacada */
+}
+
+.input-field.button .botao:active {
+    background-color: var(--amber-orange); /* Volta à cor original ao clicar */
+    transform: scale(0.97); /* Reduz o tamanho para simular o clique */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra reduzida */
+}

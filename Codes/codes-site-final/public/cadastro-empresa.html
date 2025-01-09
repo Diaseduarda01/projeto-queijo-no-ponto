@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Queijo no ponto | Cadastro Empresarial</title>
+    <link rel="stylesheet" href="css/style_cadastro.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+
+    <header id="scroll-element">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">
+                <div>
+                    <img src="imgs/logo.svg" style="height: 100px; margin-top: 10px;">
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
+                <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
+                <li class="nav-item"><a href="#menu" class="nav-link">Serviços</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">Sobre</a></li>
+                <li class="nav-item"><a href="#menu" class="nav-link">Equipe</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contato</a></li>
+                <li class="nav-item"><a href="entrar.html" class="nav-link">Login</a></li>
+                <li class="nav-item"><a href="cadastro-empresa.html" class="nav-link">Cadastro</a></li>
+            </ul>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+
+    <section class="container">
+        <div id="header">Cadastro Empresarial</div>
+        <form action="#" class="form">
+            <div class="input-box">
+                <label>Razão Social:</label>
+                <input id="razao_input" type="text" placeholder="Razão Social" />
+            </div>
+
+            <div class="input-box">
+                <label>Nome fantasia:</label>
+                <input id="nomeFantasia_input" type="text" placeholder="Nome da Empresa" />
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label>Número de Telefone:</label>
+                    <input type="tel" id="telefone_input" placeholder="Digite o número de telefone" required />
+                </div>
+                <div class="input-box">
+                    <label>CNPJ:</label>
+                    <input id="cnpj_input" type="" maxlength="18" placeholder="Digite seu CNPJ"
+                        onkeyup="validarCNPJ()" />
+                    <div id="validacaoCNPJ"></div>
+                </div>
+                <div class="input-box">
+                    <label>CPF:</label>
+                    <input id="cpf_input" type="text" maxlength="14" placeholder="Digite seu CPF"
+                        onkeyup="validarCPF()" />
+                    <div id="validacaoCPF"></div>
+                </div>
+            </div>
+            <div class="input-box">
+                <label>Representante legal:</label>
+                <input id="representante_input" type="text" placeholder="Nome do Representante" />
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label>CEP:</label>
+                    <input id="cep_input" type="text" placeholder="Digite seu CEP" required />
+                </div>
+                <div class="input-box">
+                    <label>Bairro:</label>
+                    <input id="bairro_input" type="text" placeholder="Bairro" required />
+                </div>
+                <div class="input-box">
+                    <label>Cidade:</label>
+                    <input id="cidade_input" type="text" placeholder="Cidade" required />
+                </div>
+                <div class="input-box">
+                    <label>Estado:</label>
+                    <input id="uf_input" type="text" placeholder="Estado" required />
+                </div>
+            </div>
+            <div class="input-box">
+                <label>Logradouro:</label>
+                <input id="logradouro_input" type="text" placeholder="Logradouro" required />
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label>Senha:</label>
+                    <input id="senha_input" type="password" placeholder="******" onkeyup="validarSenha()" />
+                    <div id="validacaoSenha"></div>
+                </div>
+                <div class="input-box">
+                    <label>Confirme a Senha:</label>
+                    <input id="senha_confirmacao_input" type="password" placeholder="******"
+                        onkeyup="confirmacaoSenha()" />
+                    <div id="validacaoSenha"></div>
+                </div>
+                <div id="validacaoConfirmacao"></div>
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label>Email:</label>
+                    <input id="email_input" type="email" placeholder="Digite o email da empresa" required />
+                </div>
+            </div>
+            <button type="button" onclick="cadastrarEmpresa()">Enviar</button>
+        </form>
+    </section>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+    <script src="script/script-validacao.js"></script>
+    <!-- <script src="script/script.js"></script> -->
+</body>
+
+</html>
+<script>
+
+    function cadastrarEmpresa() {
+        const razaoSocialVar = razao_input.value.trim();
+        const nomeFantasiaVar = nomeFantasia_input.value.trim();
+        const telefoneVar = telefone_input.value.trim();
+        const representanteLegalVar = representante_input.value.trim();
+        const emailVar = email_input.value.trim();
+        const senhaVar = senha_input.value.trim();
+        const CepVar = cep_input.value.trim();
+        const logradouroVar = logradouro_input.value.trim();
+        const bairroVar = bairro_input.value.trim();
+        const cidadeVar = cidade_input.value.trim();
+        const ufVar = uf_input.value.trim();
+        const CpfVar = cpf_input.value.trim();
+        const CnpjVar = cnpj_input.value.trim();
+
+        // Validação de campos obrigatórios
+        if (!razaoSocialVar || !nomeFantasiaVar || !telefoneVar || !representanteLegalVar ||
+            !emailVar || !senhaVar || !CepVar || !logradouroVar ||
+            !bairroVar || !cidadeVar || !ufVar) {
+            alert("Por favor, preencha todos os campos obrigatórios.");
+            return false;
+        }
+
+        // Validação de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailVar)) {
+            alert("Por favor, insira um email válido.");
+            return false;
+        }
+
+        console.log({
+            cpf: CpfVar,
+            cnpj: CnpjVar,
+            razaoSocial: razaoSocialVar,
+            nomeFantasia: nomeFantasiaVar,
+            telefone: telefoneVar,
+            representanteLegal: representanteLegalVar,
+            email: emailVar,
+            senha: senhaVar,
+            logradouro: logradouroVar,
+            bairro: bairroVar,
+            cidade: cidadeVar,
+            uf: ufVar,
+            cep: CepVar,
+        });
+
+        // Envio de dados via fetch
+        fetch("/empresas/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                cpf: CpfVar,
+                cnpj: CnpjVar,
+                razaoSocial: razaoSocialVar,
+                nomeFantasia: nomeFantasiaVar,
+                telefone: telefoneVar,
+                representanteLegal: representanteLegalVar,
+                email: emailVar,
+                senha: senhaVar,
+                logradouro: logradouroVar,
+                bairro: bairroVar,
+                cidade: cidadeVar,
+                uf: ufVar,
+                cep: CepVar,
+            }),
+        })
+            .then((resposta) => {
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw new Error("Erro ao realizar o cadastro.");
+                }
+            })
+            .then((json) => {
+                sessionStorage.setItem("NOME_EMPRESA", json.nomeFantasia);
+                alert("Cadastro de empresa realizado com sucesso!");
+                window.location = "entrar.html";
+            })
+            .catch((erro) => {
+                console.error("Erro:", erro);
+                alert("Erro ao realizar o cadastro da empresa.");
+            });
+
+        return false;
+    }
+
+</script>
